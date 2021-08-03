@@ -14,8 +14,8 @@
     let x = 3;//not allowed
     // x = 2
     {
-        let x = 3; /allowed
-        let x = 4; /not allowed
+        let x = 3; //allowed
+        let x = 4; //not allowed
         //x = 3
     }
     // x = 2
