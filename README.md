@@ -404,3 +404,301 @@ Parameter | Description
 searchvalue | Required. The value to search for.
 start | Optional. Default 0. The position to start the search.
 
+## VII. String templates
+
+### 1. Interpolation
+
+Template literals provide an easy way to interpolate variables and expressions into strings.
+
+The method is called string interpolation.
+
+**Syntax:**
+
+`${...}`
+
+**Example:**
+
+```javascript
+    let firstName = "John";
+    let lastName = "Doe";
+
+    let text = `Welcome ${firstName}, ${lastName}!`;
+    //result: text = "Welcome John, Doe!"
+
+    let price = 10;
+    let VAT = 0.25;
+
+    let total = `Total: ${(price * (1 + VAT).toFixed(2)}`;
+    //result: Total: 12.50
+```
+
+## VIII. Number method
+
+### 1. .toString()
+
+```javascript
+    let x = 23;
+    x.toString();
+    // return '23'
+```
+
+### 2. .toFixed()
+
+```javascript
+    let x = 2.345;
+    x.toFixed(2)// x = 2.35
+    x.toFixed(1) // x= 2.3
+    x.toFixed(4)// x = 2.3450
+```
+
+## 3. .toPrecision()
+
+```javascript
+    let x = 2.345;
+    x.toPrecision() // x= 2.345
+    x.toPrecision(1) // x = 2
+    x.toPrecisoin(3) // x = 2.35
+```
+
+### 4. Convert variable to numbers
+
+There are 3 JavaScript methods that can be used to convert variables to numbers:
+
+- The `Number()` method
+- The `parseInt()` method
+- The `parseFloat()` method
+
+These methods are not number methods, but global JavaScript methods.
+
+### 5. Number properties
+
+Property | Description
+---------|------------
+MAX_VALUE | Returns the largest number possible in JavaScript
+MIN_VALUE | Returns the smallest number possible in JavaScript
+POSITIVE_INFINITY | Represents infinity (returned on overflow)
+NEGATIVE_INFINITY | Represents negative infinity (returned on overflow)
+NaN | Represents a "Not-a-Number" value
+
+## IX. Array Method
+
+### 1..toString() and .join()
+
+The JavaScript method `toString()` converts an array to a string of (comma separated) array values.
+
+```javascript
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo").innerHTML = fruits.toString();
+    //result: Banana,Orange,Apple,Mango
+```
+
+The `join()` method also joins all array elements into a string.
+
+It behaves just like `toString()`, but in addition you can specify the separator:
+
+```Javascript
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.join("*");
+    //result: Banana * Orange * Apple * Mango
+```
+
+### 2. pop(), push(), shift()
+
+Method | Description |Return
+-------|-------------|------
+pop()|removes the last element from an array|returns the value that was "popped out"
+push()|adds a new element to an array (at the end)|returns the new array length
+shift()|removes the first array element and "shifts" all other elements to a lower index|returns the value that was "shifted out"
+unshift()|adds a new element to an array (at the beginning), and "unshifts" older elements|returns the new array length
+
+### 3. Splice()
+
+**Syntax:**
+
+`array.splice(p_splice, num_remove, e1, e2,... )`
+Parameter | Description
+----------|------------
+`p_splice` | which index should new element be added in
+`num_remove` | number of elements that should be removed
+`e1, e2` | new elements added in
+
+- This method will change the origin array
+- Return array elements that are removed from  origin array
+
+```javascript
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.splice(2, 2, "Lemon", "Kiwi"); 
+    // result: ["Banana", "Orange","Lemon", "Kiwi"]  
+
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.splice(0, 1);   // Removes the first element
+    //result:  ["Orange", "Apple", "Mango"]
+```
+
+### 4. Slice()
+
+**Syntax:**
+
+`array.slice(start, end)`
+
+- The `slice()` method will slice out a part of origin array from `start` index to `end`, not included `end` index.
+- The `slice()` method creates a new array. It does not remove any elements from the source array.
+
+```javascript
+    let a = [1,2,3,4,5,6];
+    a.slice(2,4);
+    // a stay remain and the method return [3,4]
+    a.slice(2);
+    // return [3,4,5,6]
+```
+
+## X. Array Sort
+
+- By **default**, the `.sort()` method will compare all element like string with string, which mean:
+
+```javascript
+    let a = [1,3,1,5,1,200,30];
+    a.sort();
+    //result: [1, 1, 1, 200, 3, 30, 5];
+```
+
+- to solve this problem, we use a function inside method:
+
+```javascript
+    array.sort(function (a,b) {
+        return a - b;
+    })
+```
+
+**Explain:**
+
+When the sort() function compares two values, it sends the values to the compare function, and sorts the values according to the returned (negative, zero, positive) value.
+
+- If the result is negative a is sorted before b.
+
+- If the result is positive b is sorted before a.
+
+- If the result is 0 no changes are done with the sort order of the two values.
+
+So now, if we want to sort in reverse order, just change the return value form `return a-b` to `return b-a`
+
+```javascript
+    let a = [1,3,1,5,1,200,30];
+    a.sort(function (a,b) { return a - b});
+    //result: [1, 1, 1, 3, 5, 30, 200];
+```
+
+**Sorting an array in random order:**
+
+```javascript
+    const points = [40, 100, 1, 5, 25, 10];
+    points.sort(function(a, b){return 0.5 - Math.random()});
+```
+
+## XI. Array Iteration
+
+Method | Description | Return
+-------|-------------|-------
+forEach()| calls a function (a callback function) once for each array element|undefined
+map()|performing a function on each array element and does not change the original array| new array with each element applied function
+filter()|applied a test function to each array's element|new array with all elements that pass the test function
+reduce()|- runs a function on each array element to produce (reduce it to) a single value<br>- works from left-to-right in the array|return value that applied by the function
+every()|check if all array values pass a test function| true if all element pass or false if at least 1 element doesn't pass
+some()|check if some array values pass a test.|true if at least 1 element pass or false if all elements don't pass.
+indexOf()| searches an array for an element value| the first positon where value be found if not found -> return -1
+lastIndexOf()|the same as Array.indexOf()| the position of the last occurrence of the specified element.
+includes()|This allows us to check if an element is present in an array (including NaN, unlike indexOf).|return true if appear or false in reverse
+find()|returns the value of the first array element that passes a test function|first value that pass
+findIndex()|returns the index of the first array element that passes a test function|the index of first value that pass test
+from()|returns an Array object from any object with a length property or any iterable object| array
+keys()|returns an Array Iterator object with the keys of an array|index / key of array
+
+**Example:**
+
+**forEach:**
+
+```javascript
+    let a = [1,2,3,4,5];
+    function myFunc(value) {
+        console.log(value);
+    }
+    a.forEach(myFunc);
+    //result: 1 2 3 4 5
+```
+
+**map:**
+
+```javascript
+    let a = [1,2,3,4,5];
+    function myFunc(value) {
+        value += 1;
+    }
+    var b = a.map(myFunc);
+    //result: b = [2,3,4,5,6];
+    // a stay remain
+```
+
+**filter:**
+
+```javascript
+    let a = [1,2,3,4,5,6];
+    function myFunc(value) {
+        return value > 3;
+    }
+    a.filter(myFunc);
+    //result: [4,5,6];
+```
+
+**reduce:**
+
+```javascript
+    let a = [1,2,3,4,5,6];
+    function myFunc(value1, value2) {
+        return value1 + value1;
+    }
+    a.reduce(myFunc)
+    //result: 21
+```
+
+**every and some:**
+
+```javascript
+    let a = [1,2,3,4,5,6];
+    function myFunc(value) {
+        return value >4;
+    }
+    a.every(myFunc)
+    //result: false
+    a.some(myFunc)
+    //result: true
+```
+
+**indexOf and lastIndexOf:**
+
+```javascript
+    let a = [1,2,3,2,4,5];
+    var b = a.indexOf(2); // result: 1
+    var b = a.lastIndexOf(2); // result: 3
+    var b = a.indexOf(2, 2); // result: 3
+    var b = a.indexOf(2, 4); // result: -1
+```
+
+**includes:**
+
+```javascript
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+    fruits.includes("Mango"); // is true
+```
+
+**find:**
+
+```javascript
+    let a = [2,3,4,5,6];
+    function myFunc(value) {
+        return value >4;
+    }
+    a.find(myFunc);
+    //result: 5
+```
+
