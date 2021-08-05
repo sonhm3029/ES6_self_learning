@@ -702,3 +702,449 @@ keys()|returns an Array Iterator object with the keys of an array|index / key of
     //result: 5
 ```
 
+## XII For in and For of loop
+
+### 1. For in
+
+The JavaScript `for in` statement loops through the properties of an Object:
+
+**Syntax:**
+
+```javascript
+    for (key in object) {
+        // code block to be executed
+    }
+```
+
+- with object, it's return the `key`
+- with array, it's return the `index`
+
+**Example:**
+
+```javascript
+    const obj = {
+        name: "son",
+        age: 20
+    }
+    const arr = [2,3,1,6,1,6];
+    // for in loop
+
+    for(key in obj) {
+        console.log(key);
+    }
+    //result: name, age
+
+    for(index in arr) {
+        console.log(index);
+    }
+    //result: 0,1,2,3,...
+```
+
+### 2. For of
+
+The JavaScript `for of` statement loops through the values of an iterable object.
+
+It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists, and more:
+
+**Syntax:**
+
+```javascript
+    for( variable of iterable) {
+        //code
+    }
+```
+
+## XIII. Type conversion
+
+### 1. Convert string to number
+
+Method | Description
+-------|------------
+Number() | Returns a number, converted from its argument
+parseFloat() | Parses a string and returns a floating point number
+parseInt() | Parses a string and returns an integer
+
+Or can use unary + operator:
+
+```javascript
+    Number("3.14")    // returns 3.14
+    Number(" ")       // returns 0
+    Number("")        // returns 0
+    Number("99 88")   // returns NaN
+
+    //unary + operator
+    let y = "5";      // y is a string
+    let x = + y;      // x is a number
+
+    let y = "John";   // y is a string
+    let x = + y;      // x is a number (NaN)
+```
+
+### 2. Convert number to string
+
+The global method `String()` can convert numbers to strings.
+
+It can be used on any type of numbers, literals, variables, or expressions:
+
+```javascript
+    String(x)         // returns a string from a number variable x
+    String(123)       // returns a string from a number literal 123
+    String(100 + 23)  // returns a string from a number from an expression
+```
+
+The Number method `toString()` does the same.
+
+```javascript
+    x.toString();
+    (123).toString();
+    (100 + 23).toString();
+```
+
+## XIV. Regular Expression
+
+A regular expression is a sequence of characters that forms a search pattern.
+
+When you search for data in a text, you can use this search pattern to describe what you are searching for.
+
+A regular expression can be a single character, or a more complicated pattern.
+
+Regular expressions can be used to perform all types of text search and text replace operations.
+
+**Syntax:**
+
+```Javascript
+    /pattern/modifiers;
+```
+
+**Example:**
+
+```javascript
+    /w3school/i;
+```
+
+Example explained:
+
+_**/w3schools/i**_  is a regular expression.
+
+_**w3schools**_  is a pattern (to be used in a search).
+
+_**i**_  is a modifier (modifies the search to be case-insensitive).
+
+### 1. Using string method with regexp
+
+**Example:**
+
+```javascript
+    let text = "Visit W3Schools";
+    let n = text.search(/w3schools/i);
+
+    let text = "Visit Microsoft!";
+    let result = text.replace(/microsoft/i, "W3Schools");
+```
+
+This is an example using case sensitive to ignore upper and lower case in searching word.
+
+Modifier | Description
+---------|------------
+i | Perform case-insensitive matching |
+g | Perform a global match (find all matches rather than stopping after the first match) |
+m | Perform multiline matching|
+
+Brackets are used to find a range of characters:
+
+Expression | Description
+-----------|------------
+[abc] | Find any of the characters between the brackets |
+[0-9] | Find any of the digits between the brackets |
+(x\|y) | Find any of the alternatives separated with|
+
+Metacharacters are characters with a special meaning:
+
+Metacharacter | Description
+--------------|------------
+\d | Find a digit |
+\s | Find a whitespace character |
+\b | Find a match at the beginning of a word like this: \bWORD, or at the end of a word like this: WORD\b |
+\uxxxx | Find the Unicode character specified by the hexadecimal number xxxx
+
+Quantifiers define quantities:
+
+Quantifier | Description
+-----------|------------
+n+ | Matches any string that contains at least one n
+n* | Matches any string that contains zero or more occurrences of n
+n? | Matches any string that contains zero or one occurrences of n
+
+### 2. Using the RegExp Object
+
+In JavaScript, the RegExp object is a regular expression object with predefined properties and methods.
+
+#### Using test()
+
+The `test()` method is a RegExp expression method.
+
+It searches a string for a pattern, and returns true or false, depending on the result.
+
+The following example searches a string for the character "e":
+
+**Example:**
+
+```javascript
+    const pattern = /e/;
+    pattern.test("The best things in life are free!");
+```
+
+#### Using exec()
+
+The `exec()` method is a RegExp expression method.
+
+It searches a string for a specified pattern, and returns the found text as an object.
+
+If no match is found, it returns an empty (null) object.
+
+The following example searches a string for the character "e":
+
+**Example:**
+
+```javascript
+    /e/.exec("The best things in life are free!");
+    /* result: [
+        'e',
+        index: 2,
+        input: 'The best things in life are free!',
+        groups: undefined
+    ] */
+```
+
+## XV JS Errors
+
+- The `try` statement lets you test a block of code for errors.
+
+- The `catch` statement lets you handle the error.
+
+- The `throw` statement lets you create custom errors.
+
+- The `finally` statement lets you execute code, after try and catch, regardless of the result.
+
+### 1. try and catch
+
+The `try` statement allows you to define a block of code to be tested for errors while it is being executed.
+
+The `catch` statement allows you to define a block of code to be executed, if an error occurs in the try block.
+
+The JavaScript statements `try and catch` come in pairs:
+
+```javascript
+    try {
+        Block of code to try
+    }
+    catch(err) {
+        Block of code to handle errors
+    }
+```
+
+### 2. throw errors
+
+When an error occurs, JavaScript will normally stop and generate an error message.
+
+The technical term for this is: JavaScript will throw an exception (throw an error).
+
+**JavaScript will actually create an Error object with two properties: name and message.**
+
+The `throw` statement allows you to create a custom error.
+
+Technically you can throw an exception (throw an error).
+
+The exception can be a JavaScript `String`, a `Number`, a `Boolean` or an `Object`:
+
+```Javascript
+    throw "Too big";    // throw a text
+    throw 500;          // throw a number
+```
+
+**Input validation example:**
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Please input a number between 5 and 10:</p>
+
+<input id="demo" type="text">
+<button type="button" onclick="myFunction()">Test Input</button>
+<p id="p01"></p>
+
+<script>
+function myFunction() {
+  const message = document.getElementById("p01");
+  message.innerHTML = "";
+  let x = document.getElementById("demo").value;
+  try {
+    if(x == "") throw "empty";
+    if(isNaN(x)) throw "not a number";
+    x = Number(x);
+    if(x < 5) throw "too low";
+    if(x > 10) throw "too high";
+  }
+  catch(err) {
+    message.innerHTML = "Input is " + err;
+  }
+}
+</script>
+
+</body>
+</html>
+```
+
+### 3. The finally Statement
+
+The `finally` statement lets you execute code, after try and catch, regardless of the result:
+
+**Syntax:**
+
+```javascript
+    
+    try {
+      Block of code to try
+    }
+    catch(err) {
+      Block of code to handle errors
+    }
+    finally {
+      Block of code to be executed regardless of the try/catch result
+    }
+
+```
+
+This is continuing example with `finally` satement which will erase the value in input box. 
+
+```javascript
+    function myFunction() {
+        const message = document.getElementById("p01");
+        message.innerHTML = "";
+        let x = document.getElementById("demo").value;
+        try {
+            if(x == "") throw "is empty";
+            if(isNaN(x)) throw "is not a number";
+            x = Number(x);
+            if(x > 10) throw "is too high";
+            if(x < 5) throw "is too low";
+        }
+        catch(err) {
+            message.innerHTML = "Error: " + err + ".";
+        }
+        finally {
+            document.getElementById("demo").value = "";
+        }
+    }
+```
+
+### 4. The error object
+
+JavaScript has a built in error object that provides error information when an error occurs.
+
+The error object provides two useful properties: name and message.
+
+Property | Description
+---------|------------
+name | Sets or returns an error name
+message | Sets or returns an error message (a string)
+
+**Six different values can be returned by the error name property:**
+
+Error Name | Description
+-----------|------------
+EvalError | An error has occurred in the eval() function
+RangeError | A number "out of range" has occurred
+ReferenceError | An illegal reference has occurred
+SyntaxError | A syntax error has occurred
+TypeError | A type error has occurred
+URIError | An error in encodeURI() has occurred
+
+## XVI. JS scope
+
+```javascript
+    let a = 3; // global scope
+
+    function myFunc() {
+        let b = 4; // function scope
+        // a can use here
+        c = 5;
+    }
+    // c can use here because c hasn't been declared so it be assumed as a global variable. 
+    {
+        //block scope
+        const d = 5;
+    }
+    //d can't use here
+    // b can't use here
+
+
+    // The life circle of a block or function variable just during in theirs scope, they 'll end when go out theirs scope.
+```
+
+## XVII. JS hoisting
+
+In javascript we cand use a variable before it is declared because of hoisting
+
+Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function).
+
+```javascript
+    x = 5;
+    var c = x +1;
+    var x;
+```
+
+We can do that for `var` but it 'll not work with `let` and `const`. That mean, variable declared with `let` and `const` must be declared before use.
+
+```javascript
+    carName = "Volvo";
+    let carName;
+    //result: referenceError
+
+    const carName;
+    //result: syntax Error
+```
+
+A few more confusion:
+
+```javascript
+    var x = 2;
+    var y = 3;
+    console.log(x-y);
+    // this work fine
+
+    var x = 2;
+    console.log(x-y);
+    var y = 3;
+    // This does not work because, just y declaration (var y) is moved to the top but y = 7, is not, so y was declared before console.log but it's value wasn't
+```
+
+**=> In Summary: DECLARE YOUR VARIABLE AT THE TOP.**
+
+## XVIII. JS Classes
+
+**Syntax:**
+
+```javascript
+    class className {
+        constructor() {
+            // this constructor method
+        }
+        method_1() {...}
+        method_2() {
+            //this is class method
+            // it 's declared like object method
+            // but no need to use function .
+        }
+    }
+```
+
+The `constructor method` is a special method:
+
+- It has to have the exact name "constructor"
+- It is executed automatically when a new object is created
+- It is used to initialize object properties
+
+If you do not define a constructor method, JavaScript will add an empty constructor method.
