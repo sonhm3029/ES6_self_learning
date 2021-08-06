@@ -60,3 +60,70 @@ The function (the function name) is passed to `setInterval()` as an argument.
 
 ## III. promise
 
+- "Producing code" is code that can take some time
+
+- "Consuming code" is code that must wait for the result
+
+- A Promise is a JavaScript object that links producing code and consuming code
+
+`A JavaScript Promise object contains both the producing code and calls to the consuming code:`
+
+**Promise Syntax:**
+
+```javascript
+    let myPromise = new Promise(function        (myResolve, myReject) {
+    // "Producing Code" (May take some time)
+
+        myResolve(); // when successful
+        myReject();  // when error
+    });
+
+    // "Consuming Code" (Must wait for a fulfilled Promise)
+    myPromise.then(
+        function(value) { /* code if successful */ },
+        function(error) { /* code if some error */ }
+    );
+```
+
+Result | Call
+-------|-----
+Success | myResolve(result value)
+Error | myReject(error object)
+
+**Promise Object Properties:**
+
+A JavaScript Promise object can be:
+
+- Pending
+- Fulfilled
+- Rejected
+
+The Promise object supports two properties: state and result.
+
+While a Promise object is "pending" (working), the result is undefined.
+
+When a Promise object is "fulfilled", the result is a value.
+
+When a Promise object is "rejected", the result is an error object.
+
+**Example:**
+
+```javascript
+    let myPromise = new Promise(function(myResolve, myReject) {
+    let req = new XMLHttpRequest();
+    req.open('GET', "mycar.htm");
+    req.onload = function() {
+        if (req.status == 200) {
+            myResolve(req.response);
+        } else {
+            myReject("File not Found");
+        }
+    };
+    req.send();
+    });
+
+    myPromise.then(
+        function(value) {myDisplayer(value);},
+        function(error) {myDisplayer(error);}
+    );
+```
