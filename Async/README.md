@@ -1,5 +1,11 @@
 # JS Async note
 
+[I. Simple example with callback function](#i-simple-example-with-callback-function)
+
+[II. Asynchronous](#ii-asynchronous)
+
+[III. Promise](#iii-promise)
+
 ## I. Simple example with callback function
 
 ```javascript
@@ -58,7 +64,7 @@ The function (the function name) is passed to `setInterval()` as an argument.
 
 1000 is the number of milliseconds between intervals, so `myFunction()` will be called every second.
 
-## III. promise
+## III. Promise
 
 ### 1. Definition
 

@@ -1055,7 +1055,7 @@ The `finally` statement lets you execute code, after try and catch, regardless o
 
 ```
 
-This is continuing example with `finally` satement which will erase the value in input box. 
+This is continuing example with `finally` satement which will erase the value in input box.
 
 ```javascript
     function myFunction() {

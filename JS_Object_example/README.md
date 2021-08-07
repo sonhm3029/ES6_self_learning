@@ -115,7 +115,7 @@
 
 ## IV. Object Display
 
-- Object display in ` for...in...` loop:
+- Object display in `for...in...` loop:
 
 ```javascript
     const Obj = {
@@ -375,4 +375,4 @@ has() | Returns true if a value exists
 forEach() | Invokes a callback for each element
 keys() | Returns an array of the values in a Set object
 values() | Same as keys()
-size | Returns the element count
+size | Returns the element count|
