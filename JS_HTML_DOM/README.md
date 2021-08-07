@@ -12,6 +12,8 @@ The HTML DOM is a standard for how to get, change, add, or delete HTML elements.
 
 [V. DOM Events](#v-dom-events)
 
+[VI. DOM Event Listener](#vi-dom-event-listen)
+
 ## I. DOM methods
 
 - Chúng ta sẽ rất quen thuộc với 2 thứ sau:
@@ -391,3 +393,159 @@ giống như `onmouseover`, `onmousedown và onmouseup` sẽ được triggered 
 
 ## VI. DOM Event Listener
 
+- Về `addEventListener`:
+
+**Syntax:**
+
+```javascript
+    element.addEventListener(event, function, useCapture);
+```
+
+Trong đó:
+
+- `event` là các `event` ta đã tìm hiểu ở phần trước nhưng không có "on" đằng trước. Ví dụ ở đấy `event` sẽ là `"click"` thay vì là `"onclick"`.
+
+- parameter thứ 3, `useCapture` là `true` hoặc `false` chúng ta sẽ nói vào phần tiếp theo.
+
+**Usage:**
+
+- `addEventListener` là method dùng để attaches event handler cho element được chỉ định
+- `addEventListener` attaches các event handler và không có trường hợp overwriting tức là:
+  - Có thể attaches nhiều event handler cho 1 element
+  - Có thể attaches nhiều event handler cùng loại ( ví dụ 2 event handler cùng là "onclick")
+
+**Ví dụ:**
+
+### 1. Thêm một Event Handler cho một Element
+
+```javascript
+
+    element.addEventListener("click", function(){ alert("Hello World!"); });
+
+    //hay
+
+    element.addEventListener("click", myFunction);
+
+    function myFunction() {
+        alert ("Hello World!");
+    }
+```
+
+### 2. Thêm nhiều Event Handlers cho một Element
+
+Ta có thể thêm nhiều Event Handlers bằng `addEventListener` cho cùng một element và kể cả là cùng loại event mà không bị ghi đè lên nhau.
+
+```javascript
+    element.addEventListener("click", myFunction);
+    element.addEventListener("click", mySecondFunction);
+
+    //hay
+    element.addEventListener("mouseover", myFunction);
+    element.addEventListener("click", mySecondFunction);
+    element.addEventListener("mouseout", myThirdFunction);
+```
+
+Như vậy thì cả 2 function của cùng loại event `"click"` đều được triggered khi ta click vào `element` kia
+
+### 3. Add Event handler cho window Object
+
+**Ví dụ:**
+
+```html
+
+    <!DOCTYPE html>
+    <html>
+        <body>
+
+            <h2>JavaScript addEventListener()</h2>
+
+            <p>This example uses the addEventListener() method on the window object.</p>
+
+            <p>Try resizing this browser window to trigger the "resize" event handler.</p>
+
+            <p id="demo"></p>
+
+            <script>
+                window.addEventListener("resize", function(){
+                    document.getElementById("demo").innerHTML = Math.random();
+                });
+            </script>
+
+        </body>
+</html>
+
+```
+
+Đây là ví dụ event handler được triggered khi resize window.
+
+### 4. Event Bubbling hay Event Capturing?
+
+Có 2 loại event propagation đó là `bubbling` và `capturing`
+
+_event propagation_ là một cách để định nghĩa thứ tự event occurs khi có các element lồng nhau. Ví dụ như khi ta có `<p>` element bên trong `<div>` element, user click vào `<p>` element thì `click event` của thằng nào được gọi trước ?
+
+- Với `bubbling`,`event` của  thằng nào ở bên trong cùng thì sẽ được gọi trước -> `event` của `<p>` sẽ được gọi trước `<div>`
+
+- Với `capturing` thì ngược lại -> thứ tự sẽ là `<div>` rồi mới đến `<p>`
+
+Như vậy như nói từ phần đầu, tham số thứ 3 của `addEventListener` là `useCapture`, **default** sẽ là `false` tức là dùng `bubbling`, nếu ta pass `true` thì nó sẽ là dùng `capturing` 
+
+**Ví dụ:**
+
+```html
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <style>
+                #myDiv1, #myDiv2 {
+                    background-color: coral;
+                    padding: 50px;
+                }
+
+                #myP1, #myP2 {
+                    background-color: white; 
+                    font-size: 20px;
+                    border: 1px solid;
+                    padding: 20px;
+                }
+            </style>
+            <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        </head>
+        <body>
+
+            <h2>JavaScript addEventListener()</h2>
+
+            <div id="myDiv1">
+              <h2>Bubbling:</h2>
+              <p id="myP1">Click me!</p>
+            </div><br>
+
+            <div id="myDiv2">
+              <h2>Capturing:</h2>
+              <p id="myP2">Click me!</p>
+            </div>
+
+            <script>
+            document.getElementById("myP1").addEventListener("click", function() {
+                alert("You clicked the white element!");
+            }, false);
+
+            document.getElementById("myDiv1").addEventListener("click", function() {
+                alert("You clicked the orange element!");
+            }, false);
+
+            document.getElementById("myP2").addEventListener("click", function() {
+                alert("You clicked the white element!");
+            }, true);
+
+            document.getElementById("myDiv2").addEventListener("click", function() {
+                alert("You clicked the orange element!");
+            }, true);
+            </script>
+
+        </body>
+</html>
+
+
+```
