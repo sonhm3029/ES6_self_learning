@@ -37,6 +37,7 @@
 [XVIII. JS Classes](#xviii-js-classes)
 
 [XIX. Function rest parameter](#xix-function-rest-parameter)
+
 ## I. let and const
 
 - let:
@@ -1199,5 +1200,3 @@ The rest parameter (...) allows a function to treat an indefinite number of argu
 
     let x = sum(4, 9, 16, 25, 29, 100, 66, 77);
 ```
-
-

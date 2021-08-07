@@ -1,5 +1,9 @@
 # Function Note
 
+[I. Function parameters](#i-function-parameters)
+
+[II. Function call and apply](#ii-function-call-and-apply)
+
 ## I. Function parameters
 
 - we can use `arguments` in function that return an array of parameters to use.
@@ -109,4 +113,3 @@ With the `call()` method, you can write a method that can be used on different o
     Math.max.apply(null,arr); // result: 24
     Math.min.apply(null,arr); // result: 1
 ```
-
