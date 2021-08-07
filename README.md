@@ -1,5 +1,42 @@
 # Javascript ES6 note
 
+[I. let and const](#i-let-and-const)
+
+[II. Data types](#ii-data-types)
+
+[III. Common HTML events](#iii-common-html-events)
+
+[IV. Escape character](#iv-escape-character)
+
+[V. String methods](#v-string-methods)
+
+[VI. String Search](#vi-string-search)
+
+[VII. String templates](#vii-string-templates)
+
+[VIII. Number method](#viii-number-method)
+
+[IX. Array Method](#ix-array-method)
+
+[X. Array Sort](#x-array-sort)
+
+[XI. Array Iteration](#xi-array-iteration)
+
+[XII. For in and For of loop](#xii-for-in-and-for-of-loop)
+
+[XIII. Type conversion](#xiii-type-conversion)
+
+[XIV. Regular Expression](#xiv-regular-expression)
+
+[XV. JS Errors](#xv-js-errors)
+
+[XVI. JS scope](#xvi-js-scope)
+
+[XVII. JS hoisting](#xvii-js-hoisting)
+
+[XVIII. JS Classes](#xviii-js-classes)
+
+[XIX. Function rest parameter](#xix-function-rest-parameter)
 ## I. let and const
 
 - let:
@@ -385,7 +422,7 @@ JS Version: | ES6 (2015)
     text.includes("world", 12)    // Returns false
 ```
 
-## 6. String.startWith()
+### 6. String.startWith()
 
 The `startsWith()` method returns true if a string begins with a specified value, otherwise false:
 
@@ -451,7 +488,7 @@ The method is called string interpolation.
     x.toFixed(4)// x = 2.3450
 ```
 
-## 3. .toPrecision()
+### 3. .toPrecision()
 
 ```javascript
     let x = 2.345;

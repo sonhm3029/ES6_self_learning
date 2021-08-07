@@ -89,5 +89,3 @@ Returns `undefined`.
 ```javascript
     fs.writeFileSync('./result.txt','This is a result sentence.');
 ```
-
-

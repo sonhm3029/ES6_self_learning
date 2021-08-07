@@ -266,6 +266,7 @@ Một điều giúp cho việc sử dụng Promise với nhiều công việc b�
 
 ```
 
+- `handlerFunction` trong `.catch` sẽ handler bất cứ lỗi nào bị `reject` bởi promise.
 - Ở ví dụ trên khi chạy đến hàm `readFile('data3.txt')` sẽ có lỗi xảy ra vì file không tồn tại, vì vậy hàm `reject(error)` sẽ được gọi và function trong `.catch()` được thực hiện.
 
 Xem trong:
