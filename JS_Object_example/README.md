@@ -1,5 +1,23 @@
 # Javascript object note
 
+[I. Object definitions](#i-object-definitions)
+
+[II. Object properties](#ii-object-properties)
+
+[III. Object method](#iii-object-method)
+
+[IV. Object Display](#iv-object-display)
+
+[V. Object Accessors](#v-object-accessors)
+
+[VI. Object Constructors](#vi-object-constructors)
+
+[VII. Object prototypes](#vii-object-prototypes)
+
+[VIII. Javascript Map Object](#viii-javascript-map-object)
+
+[IX. JS Set object](#ix-js-set-object)
+
 ## I. Object definitions
 
 **Obj syntax, Create an object using literal definition:**
