@@ -341,7 +341,7 @@ Ví dụ sau khi ta điền vào input và ấn enter hoặc leave input field t
 
 Ví dụ:
 
-```html 
+```html
 
     <!DOCTYPE html>
         <html>
@@ -488,7 +488,7 @@ _event propagation_ là một cách để định nghĩa thứ tự event occurs
 
 - Với `capturing` thì ngược lại -> thứ tự sẽ là `<div>` rồi mới đến `<p>`
 
-Như vậy như nói từ phần đầu, tham số thứ 3 của `addEventListener` là `useCapture`, **default** sẽ là `false` tức là dùng `bubbling`, nếu ta pass `true` thì nó sẽ là dùng `capturing` 
+Như vậy như nói từ phần đầu, tham số thứ 3 của `addEventListener` là `useCapture`, **default** sẽ là `false` tức là dùng `bubbling`, nếu ta pass `true` thì nó sẽ là dùng `capturing`
 
 **Ví dụ:**
 

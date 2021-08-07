@@ -285,7 +285,7 @@ Xem trong:
 
 Async và Await giúp cho việc viêt và sử dụng promise dễ dàng hơn.
 
-- async tạo function trả về promise 
+- async tạo function trả về promise
 - await tạo function wait for promise
 
 ### 1. Async
