@@ -6,6 +6,8 @@
 
 [III. Promise](#iii-promise)
 
+[IV. Async and Await](#iv-async-await)
+
 ## I. Simple example with callback function
 
 ```javascript
@@ -278,3 +280,74 @@ Một điều giúp cho việc sử dụng Promise với nhiều công việc b�
 Xem trong:
 
 [example file](./index.js)
+
+## IV. Async and Await
+
+Async và Await giúp cho việc viêt và sử dụng promise dễ dàng hơn.
+
+- async tạo function trả về promise 
+- await tạo function wait for promise
+
+### 1. Async
+
+The keyword `async` before a function makes the function return a promise:
+
+**Syntax:**
+
+```javascript
+    async function myFunction() {
+        return smt;
+    }
+```
+
+bằng với:
+
+```javascript
+    async function myFunction() {
+        return Promise.resolve(smt);
+    }
+```
+
+sau đó ta có thể dùng như với promise object:
+
+```javascript
+
+    myFunction().then(
+        function (value) {
+            //do smt
+        },
+        function(err) {
+            //do smt
+        }
+    )
+```
+
+### 2. Await
+
+Khi đặt `await` keyword trước một promise nó sẽ đợi cho đến khi promise kết thúc và trả về kết quả.
+
+```javascript
+    let value = await promise;
+```
+
+`await` keyword chỉ có thể được sử dụng trong `async function`
+
+**Ví dụ:**
+
+```javascript
+
+    async function myFunc() {
+
+        let promise = new Promise((resolve, reject) => {
+            setTimeout(() => resolve("done!"), 1000)
+        });
+
+        let result = await promise; // wait until the promise resolves (*)
+
+        alert(result); // "done!"
+    }
+
+    myFunc();
+```
+
+[Xem trong file](async_await.html)
