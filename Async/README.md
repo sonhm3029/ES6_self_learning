@@ -6,7 +6,7 @@
 
 [III. Promise](#iii-promise)
 
-[IV. Async and Await](#iv-async-await)
+[IV. Async and Await](#iv-async-and-await)
 
 ## I. Simple example with callback function
 
