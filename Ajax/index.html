@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <title>Ajax example</title>
+        <style>
+            h1, div {
+                text-align: center;
+            }
 
+            div {
+                font-size: 50px;
+            }
+        </style>
     </head>
     <body>
-        <script>
-            console.log(this == window);
-        </script>
+        <h1>
+            Chúng ta sẽ thực hiện ví dụ với ajax lấy data từ file data.txt
+            và truyền vào div tag phía dưới
+        </h1>
+        <div id="demo">Response sẽ hiện thị ở đây</div>
+        <button type="button" id="btn">Send Request</button>
+
+        
+        <script src="ajax_utils.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
