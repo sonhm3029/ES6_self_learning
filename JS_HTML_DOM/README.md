@@ -549,3 +549,7 @@ Như vậy như nói từ phần đầu, tham số thứ 3 của `addEventListen
 
 
 ```
+
+Tham khảo thêm tại:
+
+[Javascript HTML DOM](https://www.w3schools.com/js/js_htmldom.asp)

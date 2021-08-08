@@ -376,3 +376,7 @@ forEach() | Invokes a callback for each element
 keys() | Returns an array of the values in a Set object
 values() | Same as keys()
 size | Returns the element count|
+
+Tham khảo thêm tại:
+
+[Javascript Object](https://www.w3schools.com/js/js_object_definition.asp)

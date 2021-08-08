@@ -113,3 +113,8 @@ With the `call()` method, you can write a method that can be used on different o
     Math.max.apply(null,arr); // result: 24
     Math.min.apply(null,arr); // result: 1
 ```
+
+Tham khảo thêm tại:
+
+[Javascript Function](https://www.w3schools.com/js/js_function_definition.asp)
+

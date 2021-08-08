@@ -196,8 +196,8 @@ Xem ví dụ trong 3 file
 
 Tham khảo thêm tại:
 
-[https://www.w3schools.com/js/js_ajax_http.asp](https://www.w3schools.com/js/js_ajax_http.asp)
+[AJAX](https://www.w3schools.com/js/js_ajax_http.asp)
 
-[https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started)
+[AJAX Getting_Started](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started)
 
-[https://codelearn.io/sharing/ajax-co-ban-cho-lap-trinh-front-end](https://codelearn.io/sharing/ajax-co-ban-cho-lap-trinh-front-end)
+[AJAX cho lập trình cơ bản frontend](https://codelearn.io/sharing/ajax-co-ban-cho-lap-trinh-front-end)

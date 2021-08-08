@@ -351,3 +351,13 @@ Khi đặt `await` keyword trước một promise nó sẽ đợi cho đến khi
 ```
 
 [Xem trong file](async_await.html)
+
+Tham khảo thêm tại:
+
+[Học Javascript nâng cao với Promise/Async và Callback](https://suntech.edu.vn/hoc-javascript-nang-cao.sunpost.html)
+
+[PROMISE – HỨA THẬT NHIỀU THẤT HỨA THẬT NHIỀU](https://toidicodedao.com/2016/07/05/javascript-promise/)
+
+[Promise là khỉ gì nhỉ](https://kipalog.com/posts/Promise-la-khi-gi-)
+
+[Tìm hiểu về Javascript Promise](https://codeaholicguy.com/2016/01/26/tim-hieu-ve-javascript-promise/)
