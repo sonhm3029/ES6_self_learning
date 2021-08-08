@@ -312,6 +312,64 @@ Xem trong:
 
 [example file](./index.js)
 
+### 5. Promise.all
+
+`Promise.all` dùng để chạy song song nhiều `Promise` không liên quan với nhau
+
+**Ví dụ:**
+
+```javascript
+    let promise1 = new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            resolve([1]);
+        }, 1000);
+    });
+
+    promise1.then(
+        function(value) {
+            console.log(value);
+        }
+    )
+
+    let promise2 = new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            resolve([2,3]);
+        }, 6000);
+    })
+
+    promise2.then(
+        function(value) {
+            console.log(value);
+        }
+    )
+```
+
+Ta thấy trong ví du trên, nếu như để 2 `Promise` không liên quan với nhau chạy độc lập sẽ mất tận 7 giây để xong.
+
+Thay vì thế ta có thể dùng `Promise.all`
+
+```javascript
+
+    Promise.all([promise1, promise2])
+    .then(function(values) {
+        for( value of values) {
+            console.log(value);
+        }
+    })
+
+    //values = [[1], [2,3]];
+```
+
+`Promise.all` nhận tham số truyền vào là mảng các `promise` và trả về `promise` nên ta có thể sử dụng `.then`. Giá trị được `resolve` ở từng promise sẽ được gộp vào trở thành các phần tử của một mảng và truyền trực tiếp vào `functionHandler` như ví dụ trên.
+
+Như vậy bây giờ việc chạy 2 promise trên được gọn lại còn 6 giây.
+
+Nếu như 1 trong các promise truyền vào trong `promise.all` mà lỗi hoặc `reject` thì tất cả quá trình sẽ dừng lại tại chỗ lỗi đó.
+
+Xem trong:
+
+[promise all](./promise_all.js)
+
 ## IV. Async and Await
 
 Async và Await giúp cho việc viêt và sử dụng promise dễ dàng hơn.
