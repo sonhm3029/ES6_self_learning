@@ -1200,3 +1200,7 @@ The rest parameter (...) allows a function to treat an indefinite number of argu
 
     let x = sum(4, 9, 16, 25, 29, 100, 66, 77);
 ```
+
+Tham khảo thêm tại:
+
+[Javascript tutorial](https://www.w3schools.com/js/default.asp)
