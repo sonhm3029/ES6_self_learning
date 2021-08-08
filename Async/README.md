@@ -222,12 +222,43 @@ Thay vì truyền 2 tham số vào `.then` ta cũng có thể sử dụng `.catc
 
 Một điều giúp cho việc sử dụng Promise với nhiều công việc bất đồng bộ trở nên dễ dàng hơn đó là chaining trong `.then` method.
 
-- `.then` method default sẽ trả về một promise object ở trạng thái `pending`.
-- Các tham số:
-  - Tham số truyền vào `resolve` và `reject` như ở các phần trước `resolve(successfullSign)` hay `reject(rejectedSign)`
-  - Tham số được return từ các `handlerFunction` của **fullfiled state**.
+- Giá trị được `return` từ `.then` sẽ trở thành tham số truyền trực tiếp vào `function` trong `.then` kế tiếp
+- `function` trong `.then` có thể `return` promise, khi đó các công việc trong promise sẽ được thực hiện trước rồi mới chạy đến `.then` tiếp theo
 
-- Các tham số trên sẽ được truyền trực tiếp vào các `handlerFunction` ( mặc định là tham số thứ nhất của hàm).
+```javascript
+    // .then có thể trả về value bất kì, value này sẽ là tham số truyền trực tiếp vào handlerFunction của .then tiếp theo và mặc định là tham số đầu tiên của function đó
+
+    promise.then(
+        function() {
+            return 1;
+        }
+    )
+    .then(
+        function(value) {
+            console.log(value);// in ra 1
+            return 2;
+        }
+    )
+    .then(
+        function(value) {
+            console.log(value);
+            return new Promise(function(resolve, resject) {
+                setTimeout(reject(3), 1000);
+            })
+        }
+    )
+    .then(
+        function(value) {
+            console.log(value); // đợi 1 giây khi setTimeout từ promise phía trên thực hiện xong mới nhận giá trị 3 từ reject truyền vào
+            //=> In ra 3
+        }
+    )
+    .then(
+        function(value) {
+            console.log(value);// in ra undefined do .then trước không return gì cả
+        }
+    )
+```
 <!-- [link](#2) -->
 
 **Ví dụ với việc đọc nhiều file:**
