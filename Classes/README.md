@@ -102,4 +102,3 @@ You cannot call a `static` method on an object, only on an object class.
 Tham khảo thêm tại:
 
 [Javascript Classes](https://www.w3schools.com/js/js_class_intro.asp)
-
