@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "description": "sonhm1",
+      "id": 1,
+      "title": "demo json server 1"
+    },
+    {
+      "title": "demo json server 2",
+      "description": "sonhm",
+      "id": 2
+    },
+    {
+      "title": "ok",
+      "description": "ok",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

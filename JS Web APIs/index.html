@@ -6,9 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    h2 {
+        text-align: center;
+    }
+
+    label {
+        display: inline-block;
+        width: 100px;
+    }
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .form-modify {
+        padding: 8px;
+        margin-top: 8px;
+
+        border: 1px solid black;
+    }
+
+    .appear {
+        display: block!important;
+    }
+</style>
 <body>
-    
-    
+            
+    <div class="container">
+        <h2>List post</h2>
+        <ul class="post">
+
+        </ul>
+
+        <div class="form">
+            <div class="form-group">
+                <label for="">Title:</label>
+                <input type="text" name="post_title" placeholder="type in title">
+            </div>
+            <div class="form-group">
+                <label for="">Description:</label>
+                <input type="text" name="post_description" placeholder="type in Description">
+            </div>
+            <button class="create-post-btn">Create post</button>
+        </div>
+    </div>        
     <script src="script.js"></script>
 </body>
 </html>
